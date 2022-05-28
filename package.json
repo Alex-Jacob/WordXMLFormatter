@@ -1,7 +1,7 @@
 {
   "name": "wsxp",
   "description": "Parses source data into Microsoft Word's XML format",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "license": "MIT",
@@ -22,7 +22,7 @@
     "typescript": "^4.7.2"
   },
   "repository": {
-      "type": "git",
-      "url": "https://github.com/Alex-Jacob/WordXMLFormatter"
+    "type": "git",
+    "url": "https://github.com/Alex-Jacob/WordXMLFormatter"
   }
 }
