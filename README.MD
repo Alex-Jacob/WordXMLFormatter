@@ -7,6 +7,8 @@ The output data can be directly imported into Word to use as sources.
 
 Start by creating a new document.
 ```javascript
+import {createDoc, finishDoc, parseBook} from 'wsxp'
+
 let doc = createDoc()
 ```
 
