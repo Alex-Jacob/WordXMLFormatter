@@ -2,7 +2,7 @@
   "name": "wsxp",
   "description": "Parses source data into Microsoft Word's XML format",
   "version": "1.0.0",
-  "main": "dist/index.ts",
+  "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "license": "MIT",
   "module": "commonjs",
