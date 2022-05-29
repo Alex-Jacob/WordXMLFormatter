@@ -17,7 +17,7 @@ They are consistently named as parse_{type}(xml_root, ...params).
 For example to add a book to the sources:
 
 ```javascript
-doc = parse_book(
+doc = parseBook(
     doc: doc,
     title: "Cool book",
     authors: ["Alex J"], 
