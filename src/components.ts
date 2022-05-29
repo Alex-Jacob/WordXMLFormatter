@@ -43,7 +43,7 @@ export const startSource = (doc: XMLBuilder, type: string): XMLBuilder => {
             .txt(type)
             .up()
             .ele('b:Tag')
-            .txt(new TextDecoder("utf-8").decode(crypto.getRandomValues(new Uint32Array(10))).slice(0,3))
+            .txt(Number(new TextDecoder("utf-8").decode(crypto.getRandomValues(new Uint32Array(10)))).toString(16).slice(0,3))
             .up()
             .ele('b:Guid')
             .txt(`{${crypto.randomUUID()}}`)
