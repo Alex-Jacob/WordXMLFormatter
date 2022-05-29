@@ -13,7 +13,6 @@
     "start": "nodemon --exec ts-node src/index.ts"
   },
   "dependencies": {
-    "crypto": "^1.0.1",
     "xmlbuilder2": "^3.0.2"
   },
   "devDependencies": {
