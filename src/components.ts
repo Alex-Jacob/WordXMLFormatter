@@ -2,11 +2,13 @@ import { XMLBuilder } from "xmlbuilder2/lib/interfaces"
 import { parseBook, parseElectronicSource } from "./parsers"
 import {create} from 'xmlbuilder2'
 var crypto = require('crypto')
+var uuid = require('uuid')
 
 export const createDoc = (): XMLBuilder => {
     return create({version: '1.0'})
         .ele(
         'b:Sources', {
+            'SelectedStyle': "",
             'xmlns:b': "http://schemas.openxmlformats.org/officeDocument/2006/bibliography",
             'xmlns': "http://schemas.openxmlformats.org/officeDocument/2006/bibliography",
         })
@@ -37,6 +39,9 @@ export const startSource = (doc: XMLBuilder, type: string): XMLBuilder => {
             .up()
             .ele('b:Tag')
             .txt(crypto.getRandomBytes(3).toString('hex'))
+            .up()
+            .ele('b:Guid')
+            .txt(`{${uuid.v4()}}`)
             .up()
 }
 
