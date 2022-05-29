@@ -22,7 +22,3 @@ export {
     parseCase,
     parseMisc
 } from './parsers'
-
-let doc = createDoc()
-doc = parseBook(doc, 'Hello', ['Alex'], '2002', 'London', 'Penguyin')
-console.log(finishDoc(doc))
