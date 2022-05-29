@@ -1,8 +1,8 @@
 import { XMLBuilder } from "xmlbuilder2/lib/interfaces"
 import { parseBook, parseElectronicSource } from "./parsers"
 import {create} from 'xmlbuilder2'
-var crypto = require('crypto')
-var uuid = require('uuid')
+import {randomBytes, randomUUID} from 'crypto'
+
 
 export const createDoc = (): XMLBuilder => {
     return create({version: '1.0'})
@@ -39,10 +39,10 @@ export const startSource = (doc: XMLBuilder, type: string): XMLBuilder => {
             .txt(type)
             .up()
             .ele('b:Tag')
-            .txt(crypto.randomBytes(2).toString('hex').slice(0, 3))
+            .txt(randomBytes(2).toString('hex').slice(0, 3))
             .up()
             .ele('b:Guid')
-            .txt(`{${uuid.v4()}}`)
+            .txt(`{${randomUUID()}}`)
             .up()
 }
 
