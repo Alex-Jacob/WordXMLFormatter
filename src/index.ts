@@ -1,6 +1,3 @@
-import { createDoc, finishDoc } from './components'
-import { parseBook } from './parsers'
-
 export {createDoc, finishDoc} from './components'
 
 export {

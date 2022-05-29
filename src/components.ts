@@ -32,8 +32,9 @@ export const startSource = (doc: XMLBuilder, type: string): XMLBuilder => {
     <b:Source>
         <b:SourceType>type</b:SourceType>
         <b:Tag>{random 3 characters}</b:Tag>
+        <b:Guid>{{guid}}</b:Guid>
     */
-    return (doc.ele('b:Source')
+    return doc.ele('b:Source')
             .ele('b:SourceType')
             .txt(type)
             .up()
@@ -42,7 +43,7 @@ export const startSource = (doc: XMLBuilder, type: string): XMLBuilder => {
             .up()
             .ele('b:Guid')
             .txt(`{${uuid.v4()}}`)
-            .up())
+            .up()
 }
 
 export const closeSource = (doc: XMLBuilder): XMLBuilder => {
