@@ -43,7 +43,7 @@ export const startSource = (doc: XMLBuilder, type: string): XMLBuilder => {
             .txt(type)
             .up()
             .ele('b:Tag')
-            .txt(new TextDecoder("utf-8").decode(crypto.getRandomValues(new Uint32Array(10))).slice(0,3))
+            .txt(toHex(new TextDecoder("utf-8").decode(crypto.getRandomValues(new Uint32Array(10)))).slice(0,3))
             .up()
             .ele('b:Guid')
             .txt(`{${crypto.randomUUID()}}`)
@@ -94,3 +94,11 @@ export const addCreators = (doc: XMLBuilder, tag_name: string, ...creators: stri
 
     return doc.up().up().up()
 }
+
+function toHex(str) {
+    var result = '';
+    for (var i=0; i<str.length; i++) {
+      result += str.charCodeAt(i).toString(16);
+    }
+    return result;
+  }
