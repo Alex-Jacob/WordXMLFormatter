@@ -1,6 +1,12 @@
 import { XMLBuilder } from "xmlbuilder2/lib/interfaces"
 import {create} from 'xmlbuilder2'
 
+// Hacky workaround for randomUUID not existing in TS crypto module
+declare global {
+    interface Crypto {
+      randomUUID: () => string;
+    }
+  }
 
 export const createDoc = (): XMLBuilder => {
     return create({version: '1.0'})
@@ -20,7 +26,7 @@ export const textField = (doc: XMLBuilder, tag: string, text: string): XMLBuilde
     if (text) {
         return doc.ele(`b:${tag}`).txt(text).up()
     }
-    
+
     return doc
 }
 
