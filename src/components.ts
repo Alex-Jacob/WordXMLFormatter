@@ -33,16 +33,16 @@ export const startSource = (doc: XMLBuilder, type: string): XMLBuilder => {
         <b:SourceType>type</b:SourceType>
         <b:Tag>{random 3 characters}</b:Tag>
     */
-    return doc.ele('b:Source')
+    return (doc.ele('b:Source')
             .ele('b:SourceType')
             .txt(type)
             .up()
             .ele('b:Tag')
-            .txt(crypto.getRandomBytes(3).toString('hex'))
+            .txt(crypto.randomBytes(2).toString('hex').slice(0, 3))
             .up()
             .ele('b:Guid')
             .txt(`{${uuid.v4()}}`)
-            .up()
+            .up())
 }
 
 export const closeSource = (doc: XMLBuilder): XMLBuilder => {
