@@ -1,6 +1,7 @@
 import { XMLBuilder } from "xmlbuilder2/lib/interfaces"
 import { parseBook, parseElectronicSource } from "./parsers"
 import {create} from 'xmlbuilder2'
+var crypto = require('crypto')
 
 export const createDoc = (): XMLBuilder => {
     return create({version: '1.0'})
@@ -28,10 +29,14 @@ export const startSource = (doc: XMLBuilder, type: string): XMLBuilder => {
     Generates:
     <b:Source>
         <b:SourceType>type</b:SourceType>
+        <b:Tag>{random 3 characters}</b:Tag>
     */
     return doc.ele('b:Source')
             .ele('b:SourceType')
             .txt(type)
+            .up()
+            .ele('b:Tag')
+            .txt(crypto.getRandomBytes(3).toString('hex'))
             .up()
 }
 
